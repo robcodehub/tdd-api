@@ -14,3 +14,11 @@ app.get('/api/users', (req, res, next)=>{
     .then(users => res.send(users))
     .catch(next);
   });
+
+
+app.delete('/api/users/:id', (req, res, next) => {
+  User.findByPk(req.params.id)
+  .then(user => user.destroy())
+  .then(() => res.sendStatus(204))
+  .catch(next);
+});

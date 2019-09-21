@@ -18,14 +18,24 @@ describe('TDD Top Level seeding data', ()=> {
 
   });
 
-  describe('API', ()=> {
-    it('get /api/users',()=>{
+  describe('GET API', ()=> {
+    it('gets data from /api/users',()=>{
       return app.get('/api/users')
         .expect(200)
         .then( response => {expect(response.body.length).to.equal(3);
         })
-    })
-  })
+    });
+  });
+
+  describe('DELETE API', ()=> {
+    it('deletes a user',()=>{
+      return app.delete('/api/users/${seed.users.user1.id')
+        .send({name: 'Rob'}
+        .expect(204)
+        })
+    });
+  });
+
 
 
 });
