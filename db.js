@@ -1,8 +1,6 @@
 const Sequelize = require('sequelize');
 const { STRING, DECIMAL, UUID, UUIDV4 } = Sequelize;
 
-console.log("TESTING!!!!!!!!!!!!!!! ====================");
-
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/tdd_api_db');
 
 
