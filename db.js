@@ -21,7 +21,7 @@ const User = conn.define('user', {
 
 });
 
-
+/*
 const Department = conn.define('department', {
   id: {
     primaryKey: true,
@@ -36,4 +36,34 @@ const Department = conn.define('department', {
     }
   }
 });
+*/
 
+const syncAndSeed = async() => {
+  await conn.sync( { force: true } );
+
+  const users = [
+    {name: 'Rob'},
+    {name: 'Philip'},
+    {name: 'Moe'}
+  ];
+
+
+const [user1, user2, user3] = await Promise.all(users.map (user => User.create(user)));
+
+
+
+return {
+  users: {
+    user1,
+    user2,
+    user3
+  }
+}
+};
+
+module.exports = {
+  syncAndSeed,
+  models: {
+    User
+  }
+}
