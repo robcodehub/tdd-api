@@ -27,6 +27,7 @@ describe('TDD Top Level seeding data', ()=> {
     });
   });
 
+  /*
   describe('DELETE API', ()=> {
     it('deletes a user',()=>{
       return app.delete('/api/users/${seed.users.user1.id')
@@ -35,7 +36,7 @@ describe('TDD Top Level seeding data', ()=> {
         })
     });
   });
-
+*/
 
 
 });
