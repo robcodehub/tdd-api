@@ -6,8 +6,8 @@ const { pluralize } = require('inflection');
 
 module.exports = app;
 
-app.use(express.json);
-app.use(require('cors') () );
+app.use(express.json());
+app.use(require('cors')());
 
 app.get('/api/users', (req, res, next)=>{
   User.findAll()
