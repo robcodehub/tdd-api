@@ -1,8 +1,8 @@
 const { expect } = require('chai');
 const db = require('./db');
 const { User } = db.models;
+const app = require('supertest')(require('./app'));
 
-//NOTE: REQUIRE SUPER TEST LATER
 
 describe('TDD Top Level seeding data', ()=> {
 
@@ -17,5 +17,15 @@ describe('TDD Top Level seeding data', ()=> {
     });
 
   });
+
+  describe('API', ()=> {
+    it('get /api/users',()=>{
+      return app.get('/api/users')
+        .expect(200)
+        .then( response => {expect(response.body.length).to.equal(3);
+        })
+    })
+  })
+
 
 });
