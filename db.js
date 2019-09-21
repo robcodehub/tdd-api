@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const { STRING, DECIMAL, UUID, UUIDV4 } = Sequelize;
 
+console.log("TESTING!!!!!!!!!!!!!!! ====================");
+
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/tdd_api_db');
 
 
@@ -14,7 +16,7 @@ const User = conn.define('user', {
     type: STRING,
     allowNull: false,
     validate: {
-      noteEmpty: true
+      notEmpty: true
     }
   }
   //NOTE: PUT IN DEPARTMENT ID REFERENCES DEPARTMENT ID
@@ -32,13 +34,14 @@ const Department = conn.define('department', {
     type: STRING,
     allowNull: false,
     validate: {
-      noteEmpty: true
+      notEmpty: true
     }
   }
 });
 */
 
 const syncAndSeed = async() => {
+
   await conn.sync( { force: true } );
 
   const users = [

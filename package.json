@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dev": "DATABASE_URL=postgres//localhost/tdd_api_test_db mocha spec.js --watch",
+    "test:dev": "DATABASE_URL=postgres://localhost/tdd_api_test_db mocha spec.js --watch",
     "start": "node server.js"
   },
   "repository": {
